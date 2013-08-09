@@ -1,0 +1,24 @@
+{
+  "name": "node-shells",
+  "version": "0.0.0",
+  "description": "all the shellz",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/evilpacket/node-shells.git"
+  },
+  "keywords": [
+    "bind",
+    "reverse",
+    "shell",
+    "security"
+  ],
+  "author": "Adam Baldwin",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/evilpacket/node-shells/issues"
+  }
+}
